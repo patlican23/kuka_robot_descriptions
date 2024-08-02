@@ -190,7 +190,7 @@
     <joint name="waybo_base-${prefix}base_link" type="fixed">
       <parent link="waybo_base"/>
       <child link="${prefix}base_link"/>
-      <origin rpy="-0.4636 0.0 -0.0" xyz="-0.1 0.5 0.76"/>
+      <origin rpy="-0.387 -0.361 -0.857" xyz="-0.1 0.5 0.76"/>
     </joint>
 
     <joint name="${prefix}joint_1" type="revolute">
