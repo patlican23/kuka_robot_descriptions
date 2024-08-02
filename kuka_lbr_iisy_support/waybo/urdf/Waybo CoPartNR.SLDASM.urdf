@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="Waybo_CoPartNR.SLDASM">
+  <!-- Define prefix argument -->
+  <xacro:arg name="prefix" default=""/>
+
+  <!-- Link with prefix -->
+  <link name="Waybo_CoPartNR.SLDASM_base_link">
+    <inertial>
+      <origin xyz="0.444599209103205 -0.60137200004521 0.377750161307438" rpy="0 0 0" />
+      <mass value="1.45636609502836E-07" />
+      <inertia ixx="1.72284700605867E-12" ixy="4.71431708842706E-18" ixz="6.51489716879166E-16" iyy="3.36791002043608E-12" iyz="-3.34242573357338E-18" izz="1.72369484005525E-12" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://Waybo_CoPartNR.SLDASM/meshes/base_link.STL" />
+      </geometry>
+      <material name="">
+        <color rgba="0.749019607843137 0.749019607843137 0.749019607843137 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="package://Waybo_CoPartNR.SLDASM/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+</robot>
+

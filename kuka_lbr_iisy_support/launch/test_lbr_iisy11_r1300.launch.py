@@ -26,6 +26,7 @@ def generate_launch_description():
             " ",
             PathJoinSubstitution(
                 [FindPackageShare("kuka_lbr_iisy_support"), "urdf", "lbr_iisy11_r1300.urdf.xacro"]
+                # [FindPackageShare("kuka_lbr_iisy_support"), "urdf", "combined_robot.urdf.xacro"]
             ),
             " ",
             "use_fake_hardware:=true",
@@ -64,3 +65,65 @@ def generate_launch_description():
     )
 
     return LaunchDescription([robot_state_publisher, rviz_node, joint_state_publisher_gui])
+
+
+# from launch import LaunchDescription
+# from launch.substitutions import Command, FindExecutable, PathJoinSubstitution
+# from launch_ros.substitutions import FindPackageShare
+# from launch_ros.actions import Node
+
+# def generate_launch_description():
+#     robot_description_content = Command(
+#         [
+#             PathJoinSubstitution([FindExecutable(name="xacro")]),
+#             " ",
+#             PathJoinSubstitution(
+#                 [FindPackageShare("kuka_lbr_iisy_support"), "urdf", "combined_robot.urdf.xacro"]
+#             ),
+#             " ",
+#             "prefix:=Waybo_CoPartNR.SLDASM_ ",
+#             "use_fake_hardware:=true ",
+#             "controller_ip:=0.0.0.0 ",
+#             "client_ip:=0.0.0.0 ",
+#             "x:=0 ",
+#             "y:=0 ",
+#             "z:=0.980 ",
+#             "roll:=0 ",
+#             "pitch:=0 ",
+#             "yaw:=0"
+#         ]
+#     )
+#     robot_description = {"robot_description": robot_description_content}
+
+#     # RViz
+#     rviz_config_file = PathJoinSubstitution(
+#         [FindPackageShare("kuka_resources"), "config", "view_6_axis_urdf.rviz"]
+#     )
+#     rviz_node = Node(
+#         package="rviz2",
+#         executable="rviz2",
+#         name="rviz2_launch",
+#         output="log",
+#         arguments=["-d", rviz_config_file],
+#         parameters=[robot_description],
+#     )
+
+#     # Publish TF
+#     robot_state_publisher = Node(
+#         package="robot_state_publisher",
+#         executable="robot_state_publisher",
+#         name="robot_state_publisher",
+#         output="both",
+#         parameters=[robot_description],
+#     )
+
+#     # Joint state publisher
+#     joint_state_publisher_gui = Node(
+#         package="joint_state_publisher_gui",
+#         executable="joint_state_publisher_gui",
+#         name="joint_state_publisher_gui",
+#         output="log",
+#     )
+
+#     return LaunchDescription([robot_state_publisher, rviz_node, joint_state_publisher_gui])
+
